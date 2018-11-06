@@ -1,0 +1,478 @@
+* Init stuff
+#+BEGIN_SRC emacs-lisp
+  (setq initial-buffer-choice (lambda () (dired "~/org")))
+  (org-babel-do-load-languages
+      'org-babel-load-languages
+          '((shell . t)
+            (emacs-lisp . t)
+            (calc . t)
+            (lua . t)))
+  (load-theme 'monokai t)
+  (show-paren-mode 1)
+  (server-force-delete)
+  (server-start)
+  (display-time)
+  (setq browse-url-browser-function 'browse-url-generic
+        browse-url-generic-program "google-chrome")
+  (setq ido-separator "\n")
+  (add-to-list 'load-path "~/.emacs.d/elisp/")
+#+END_SRC
+
+#+RESULTS:
+| /home/jose/.emacs.d/elpa/slime-20180923.1848/contrib | ~/.emacs.d/elisp/ | /home/jose/.emacs.d/elpa/beacon-20181008.1350 | /home/jose/.emacs.d/elpa/company-20181012.2220 | /home/jose/.emacs.d/elpa/edit-server-20180120.1552 | /home/jose/.emacs.d/elpa/emmet-mode-20180613.341 | /home/jose/.emacs.d/elpa/evil-org-20180323.1606 | /home/jose/.emacs.d/elpa/evil-surround-20180102.1401 | /home/jose/.emacs.d/elpa/evil-20180517.1300 | /home/jose/.emacs.d/elpa/expand-region-20180817.1134 | /home/jose/.emacs.d/elpa/free-keys-20160726.2050 | /home/jose/.emacs.d/elpa/gnuplot-mode-20171013.1616 | /home/jose/.emacs.d/elpa/google-this-20170810.1215 | /home/jose/.emacs.d/elpa/goto-chg-20180105.1033 | /home/jose/.emacs.d/elpa/helm-20180906.517 | /home/jose/.emacs.d/elpa/helm-core-20180826.515 | /home/jose/.emacs.d/elpa/htmlize-20180923.1829 | /home/jose/.emacs.d/elpa/key-seq-20150907.56 | /home/jose/.emacs.d/elpa/key-chord-20160227.438 | /home/jose/.emacs.d/elpa/lua-mode-20180323.1021 | /home/jose/.emacs.d/elpa/magit-20181023.1346 | /home/jose/.emacs.d/elpa/git-commit-20181009.1840 | /home/jose/.emacs.d/elpa/ghub-20181003.1456 | /home/jose/.emacs.d/elpa/let-alist-1.0.5 | /home/jose/.emacs.d/elpa/graphql-20180912.31 | /home/jose/.emacs.d/elpa/magit-popup-20181003.921 | /home/jose/.emacs.d/elpa/dash-20180910.1856 | /home/jose/.emacs.d/elpa/monokai-theme-20180730.1329 | /home/jose/.emacs.d/elpa/ob-mermaid-20180522.1659 | /home/jose/.emacs.d/elpa/org-brain-20180712.1410 | /home/jose/.emacs.d/elpa/org-9.1.13 | /home/jose/.emacs.d/elpa/org-bullets-20171127.526 | /home/jose/.emacs.d/elpa/org-protocol-jekyll-20170328.1639 | /home/jose/.emacs.d/elpa/popup-kill-ring-20131020.1854 | /home/jose/.emacs.d/elpa/popup-20160709.1429 | /home/jose/.emacs.d/elpa/pos-tip-20150318.1513 | /home/jose/.emacs.d/elpa/pymacs-0.25 | /home/jose/.emacs.d/elpa/rainbow-delimiters-20170929.1132 | /home/jose/.emacs.d/elpa/ranger-20170817.1557 | /home/jose/.emacs.d/elpa/seq-2.20 | /home/jose/.emacs.d/elpa/slime-20180923.1848 | /home/jose/.emacs.d/elpa/macrostep-20161120.2106 | /home/jose/.emacs.d/elpa/swiper-20181008.1731 | /home/jose/.emacs.d/elpa/ivy-20181016.730 | /home/jose/.emacs.d/elpa/switch-window-20181012.121 | /home/jose/.emacs.d/elpa/tablist-20170220.335 | /home/jose/.emacs.d/elpa/treepy-20180724.656 | /home/jose/.emacs.d/elpa/undo-tree-0.6.5 | /home/jose/.emacs.d/elpa/use-package-20180715.1801 | /home/jose/.emacs.d/elpa/bind-key-20180513.430 | /home/jose/.emacs.d/elpa/w3m-20180405.520 | /home/jose/.emacs.d/elpa/which-key-20180621.1938 | /home/jose/.emacs.d/elpa/with-editor-20181009.1813 | /home/jose/.emacs.d/elpa/async-20180527.1730 | /home/jose/.emacs.d/elpa/xah-fly-keys-20180911.532 | /home/jose/.emacs.d/elpa/zzz-to-char-20180101.619 | /home/jose/.emacs.d/elpa/avy-20181009.1648 | /etc/emacs25 | /etc/emacs | /usr/local/share/emacs/25.2/site-lisp | /usr/local/share/emacs/site-lisp | /usr/share/emacs25/site-lisp/dictionaries-common | /usr/share/emacs/site-lisp/autoconf | /usr/share/emacs/25.2/site-lisp | /usr/share/emacs/25.2/site-lisp/dictionaries-common | /usr/share/emacs/25.2/site-lisp/elpa | /usr/share/emacs/25.2/site-lisp/pymacs | /usr/share/emacs/25.2/site-lisp/elpa/notmuch-0.25.1 | /usr/share/emacs/site-lisp | /usr/share/emacs/25.2/lisp | /usr/share/emacs/25.2/lisp/vc | /usr/share/emacs/25.2/lisp/url | /usr/share/emacs/25.2/lisp/textmodes | /usr/share/emacs/25.2/lisp/progmodes | /usr/share/emacs/25.2/lisp/play | /usr/share/emacs/25.2/lisp/org | /usr/share/emacs/25.2/lisp/nxml | /usr/share/emacs/25.2/lisp/net | /usr/share/emacs/25.2/lisp/mh-e | /usr/share/emacs/25.2/lisp/mail | /usr/share/emacs/25.2/lisp/leim | /usr/share/emacs/25.2/lisp/language | /usr/share/emacs/25.2/lisp/international | /usr/share/emacs/25.2/lisp/gnus | /usr/share/emacs/25.2/lisp/eshell | /usr/share/emacs/25.2/lisp/erc | /usr/share/emacs/25.2/lisp/emulation | /usr/share/emacs/25.2/lisp/emacs-lisp | /usr/share/emacs/25.2/lisp/cedet | /usr/share/emacs/25.2/lisp/calendar | /usr/share/emacs/25.2/lisp/calc | /usr/share/emacs/25.2/lisp/obsolete |
+
+* Generally useful stuff
+** Looks
+These are setting that do not depend on packages and are built-in enhancements to the UI.
+*** Convert Markdown to Org
+ #+BEGIN_SRC emacs-lisp
+ (defun markdown-convert-buffer-to-org ()
+     "Convert the current buffer's content from markdown to orgmode format and save it with the current buffer's file name but with .org extension."
+     (interactive)
+     (shell-command-on-region (point-min) (point-max)
+                              (format "pandoc -f markdown -t org -o %s"
+                                      (concat (file-name-sans-extension (buffer-file-name)) ".org"))))
+ #+END_SRC
+**** TODO Add keybinding to this.
+*** Remove lame startup screen
+We use an actual replacement for it, keep reading or head directly to =dashboard=.
+#+BEGIN_SRC emacs-lisp
+(setq inhibit-startup-message t)
+#+END_SRC
+*** Highligh current line
+=hl-line= is awesome! It's not very awesome in the terminal version of emacs though, so we don't use that.
+Besides, it's only used for programming.
+#+BEGIN_SRC emacs-lisp
+  (when window-system (add-hook 'prog-mode-hook 'hl-line-mode))
+#+END_SRC
+
+** Functionality
+*** Search google
+#+BEGIN_SRC emacs-lisp
+  (defun my/google-search ()
+      "Searches google for given input"
+      (interactive)
+  (eww (concat "https://www.google.com.ar/search?q="
+               (read-string "Search Google for: "))))
+  (global-set-key (kbd "<f12>") 'my/google-search)
+#+END_SRC
+*** Disable backups and auto-saves
+I don't use either, you might want to turn those from =nil= to =t= if you do.
+#+BEGIN_SRC emacs-lisp
+(setq make-backup-files nil)
+(setq auto-save-default nil)
+#+END_SRC
+
+*** Change yes-or-no questions into y-or-n questions
+#+BEGIN_SRC emacs-lisp
+(defalias 'yes-or-no-p 'y-or-n-p)
+#+END_SRC
+
+*** Async
+Lets us use asynchronous processes wherever possible, pretty useful.
+#+BEGIN_SRC emacs-lisp
+  (use-package async
+    :ensure t
+    :init (dired-async-mode 1))
+#+END_SRC
+
+*** Electric
+If you write any code, you may enjoy this.
+Typing the first character in a set of 2, completes the second one after your cursor.
+Opening a bracket? It's closed for you already. Quoting something? It's closed for you already.
+
+You can easily add and remove pairs yourself, have a look.
+#+BEGIN_SRC emacs-lisp
+(setq electric-pair-pairs '(
+                           (?\{ . ?\})
+                           (?\( . ?\))
+                           (?\[ . ?\])
+                           (?\" . ?\")
+                           ))
+#+END_SRC
+
+And now to enable it
+#+BEGIN_SRC emacs-lisp
+(electric-pair-mode t)
+#+END_SRC
+
+*** Rainbow limiters
+#+BEGIN_SRC emacs-lisp
+  (use-package rainbow-delimiters
+    :ensure t
+    :init
+      (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+#+END_SRC
+*** Beacon
+#+BEGIN_SRC emacs-lisp
+(use-package beacon
+  :ensure t
+  :config
+    (beacon-mode 1))
+#+END_SRC
+*** Expand region
+  #+BEGIN_SRC emacs-lisp
+(use-package expand-region
+  :ensure t
+  :bind ("C-q" . er/expand-region))
+  #+END_SRC
+
+*** Zap to char
+  #+BEGIN_SRC emacs-lisp
+    (use-package zzz-to-char
+    :ensure t
+    :bind ("M-z" . zzz-up-to-char))
+  #+END_SRC
+  
+*** Popup kill ring
+#+BEGIN_SRC emacs-lisp
+(use-package popup-kill-ring
+  :ensure t
+  :bind ("M-B" . popup-kill-ring))
+#+END_SRC
+* Evil Mode
+** Setup
+#+BEGIN_SRC emacs-lisp
+(require 'evil)
+(evil-mode 1)
+(menu-bar-mode -1) 
+(toggle-scroll-bar -1) 
+(tool-bar-mode -1) 
+
+
+(require 'evil-org-agenda)
+(evil-org-agenda-set-keys)
+#+END_SRC
+** Evil-Surround
+#+BEGIN_SRC emacs-lisp
+(use-package evil-surround
+  :ensure t
+  :config
+  (global-evil-surround-mode 1))
+#+END_SRC
+** Shortcuts
+#+BEGIN_SRC emacs-lisp
+(require 'key-chord)
+(require 'key-seq)
+(key-chord-mode 1)
+;
+(key-chord-define evil-normal-state-map ",," 'evil-force-normal-state)
+(key-chord-define evil-visual-state-map ",," 'evil-change-to-previous-state)
+(key-chord-define evil-insert-state-map ",," 'evil-normal-state)
+(key-chord-define evil-replace-state-map ",," 'evil-normal-state)
+;
+(key-chord-define evil-normal-state-map "jk" 'evil-force-normal-state)
+(key-chord-define evil-visual-state-map "jk" 'evil-change-to-previous-state)
+(key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
+(key-chord-define evil-replace-state-map "jk" 'evil-normal-state)
+
+#+END_SRC
+
+** Misc
+#+BEGIN_SRC emacs-lisp
+(require 'evil-org)
+(add-hook 'org-mode-hook 'evil-org-mode)
+(evil-org-set-key-theme '(navigation insert textobjects additional calendar))
+
+(require 'evil-org-agenda)
+(evil-org-agenda-set-keys)
+
+#+END_SRC
+
+* Org-Mode
+** Prevent agenda from killing other windows
+#+BEGIN_SRC emacs-lisp
+(setq org-agenda-window-setup 'current-window)
+#+END_SRC
+** Syntax highlighting for documents exported to HTML
+#+BEGIN_SRC emacs-lisp
+  (use-package htmlize
+    :ensure t)
+#+END_SRC
+
+** Easy-to-add emacs-lisp template
+Hitting tab after an "<el" in an org-mode file will create a template for elisp insertion.
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'org-structure-template-alist
+	       '("el" "#+BEGIN_SRC emacs-lisp\n?\n#+END_SRC"))
+#+END_SRC
+
+** Org Bullets
+Makes it all look a bit nicer, I hate looking at asterisks.
+#+BEGIN_SRC emacs-lisp
+  (use-package org-bullets
+    :ensure t
+    :config
+      (add-hook 'org-mode-hook (lambda () (org-bullets-mode))))
+#+END_SRC
+
+** Common settings
+#+BEGIN_SRC emacs-lisp
+  (require 'org-capture)
+  (require 'org-protocol)
+  (require 'org-bullets)
+  (setq org-id-track-globally t)
+  (setq org-id-locations-file "~/.emacs.d/.org-id-locations")
+  (setq org-ellipsis " ")
+  (setq org-src-fontify-natively t)
+  (setq org-src-tab-acts-natively t)
+  (setq org-confirm-babel-evaluate nil)
+  (setq org-export-with-smart-quotes t)
+  (setq org-src-window-setup 'current-window)
+  (add-hook 'org-mode-hook 'org-indent-mode)
+#+END_SRC
+
+** Keybinding for favourite agenda view
+#+BEGIN_SRC emacs-lisp
+
+;; http://emacs.stackexchange.com/questions/864/how-to-bind-a-key-to-a-specific-agenda-command-list-in-org-mode
+(defun org-agenda-show-agenda-and-todo (&optional arg)
+  (interactive "P")
+  (org-agenda arg "n"))
+
+;; Org Capture templates
+#+END_SRC
+
+** Org templates
+#+BEGIN_SRC emacs-lisp
+(setq org-capture-templates '
+    (
+	 (
+	    "t"                                            ; key
+	    "Todo"                                         ; description
+	    entry                                          ; type
+	    (file+headline "~/org/todo.org" "tasks")        ; target
+	    "* TODO %^{Todo}%?"  ; template
+	    :prepend t                                     ; properties
+         )
+     )
+)
+#+END_SRC
+
+* Shortcuts
+#+BEGIN_SRC emacs-lisp
+
+  (global-unset-key [(meta shift j)])
+
+  ;; org stuff
+  (global-set-key (kbd "C-c l") 'org-store-link)
+  (global-set-key (kbd "C-c a") 'org-agenda)
+  (global-set-key (kbd "C-c c") 'org-capture)
+  (global-set-key (kbd "C-c b")'org-switchb)
+  (global-set-key (kbd "M-n" ) 'org-agenda-show-agenda-and-todo)
+  (global-set-key (kbd "M-p" ) 'org-insert-subheading)
+  
+
+  ;; Misc
+  (global-set-key (kbd "M-P") 'org-time-stamp)
+  (global-set-key (kbd "M-a") 'eval-buffer) 
+  (global-set-key (kbd "M-Q") 'shell-command)
+  ;(add-to-list 'default-frame-alist '(font . Hack-Regular ))
+  ;(set-face-attribute 'default t :font Hack-Regular )
+#+END_SRC
+** Reload config
+#+BEGIN_SRC emacs-lisp
+(defun config-reload ()
+  "Reloads ~/.emacs.d/config.org at runtime"
+  (interactive)
+  (org-babel-load-file (expand-file-name "~/.emacs.d/config.org")))
+(global-set-key (kbd "C-c r") 'config-reload)
+#+END_SRC
+** Visit Org folder
+#+BEGIN_SRC emacs-lisp
+(defun org-visit ()
+  (interactive)
+  (dired "~/org"))
+(global-set-key (kbd "C-c w") 'org-visit)
+#+END_SRC
+
+#+RESULTS:
+: org-visit
+
+** Visit temp org file 
+Meant to be used as a sort of scratch org file
+#+BEGIN_SRC emacs-lisp
+(defun org-temp-visit ()
+  (interactive)
+  (find-file "~/org/now/temp.org"))
+(global-set-key (kbd "C-c t") 'org-temp-visit)
+#+END_SRC
+** Visit config 
+#+BEGIN_SRC emacs-lisp
+(defun config-visit ()
+  (interactive)
+  (find-file "~/.emacs.d/config.org"))
+(global-set-key (kbd "C-c e") 'config-visit)
+#+END_SRC
+* HELM
+  #+BEGIN_SRC emacs-lisp
+    (use-package helm
+      :ensure t
+      :bind
+      ("M-x" . 'helm-M-x)
+      ("C-x b" . 'helm-buffers-list)
+      ("C-x f" . 'helm-find-files))
+    :config
+    :init
+    (helm-mode 1)
+
+    (require 'helm-config)    
+  #+END_SRC
+
+* Pymacs
+#+BEGIN_SRC emacs-lisp
+(autoload 'pymacs-apply "pymacs")
+(autoload 'pymacs-call "pymacs")
+(autoload 'pymacs-eval "pymacs" nil t)
+(autoload 'pymacs-exec "pymacs" nil t)
+(autoload 'pymacs-load "pymacs" nil t)
+(autoload 'pymacs-autoload "pymacs")
+#+END_SRC
+* Slime
+#+BEGIN_SRC emacs-lisp
+  (use-package slime
+    :config
+    (setq slime-contribs '(slime-fancy))
+    (setq inferior-lisp-program "/usr/bin/sbcl"))
+#+END_SRC
+* Company
+#+BEGIN_SRC emacs-lisp
+(use-package company
+:ensure t)
+
+#+END_SRC
+* Avy
+#+BEGIN_SRC emacs-lisp
+  (use-package avy
+    :ensure t
+    :bind
+    ("M-s" . avy-goto-char))
+#+END_SRC
+* Which-key
+#+BEGIN_SRC emacs-lisp
+(use-package which-key
+  :ensure t
+  :config
+    (which-key-mode))
+#+END_SRC
+* Switch-Window
+  #+BEGIN_SRC emacs-lisp
+(use-package switch-window
+  :ensure t
+  :config
+    (setq switch-window-input-style 'minibuffer)
+    (setq switch-window-increase 4)
+    (setq switch-window-threshold 2)
+    (setq switch-window-shortcut-style 'qwerty)
+    (setq switch-window-qwerty-shortcuts
+        '("a" "s" "d" "f" "j" "k" "l" "i" "o"))
+  :bind
+    ([remap other-window] . switch-window))
+  #+END_SRC
+** Focus After Split
+   #+BEGIN_SRC emacs-lisp
+(defun split-and-follow-horizontally ()
+  (interactive)
+  (split-window-below)
+  (balance-windows)
+  (other-window 1))
+(global-set-key (kbd "C-x 2") 'split-and-follow-horizontally)
+
+(defun split-and-follow-vertically ()
+  (interactive)
+  (split-window-right)
+  (balance-windows)
+  (other-window 1))
+(global-set-key (kbd "C-x 3") 'split-and-follow-vertically)
+   #+END_SRC
+* Ranger
+#+BEGIN_SRC emacs-lisp
+(use-package ranger
+  :ensure t)
+#+END_SRC
+* Swiper 
+  #+BEGIN_SRC emacs-lisp
+ (use-package swiper
+  :ensure t
+  :bind ("C-s" . 'swiper))
+  #+END_SRC
+* Buffers and why I hate list-buffers
+Another big thing is, buffers. If you use emacs, you use buffers, everyone loves them.
+Having many buffers is useful, but can be tedious to work with, let us see how we can improve it.
+
+** Always murder current buffer
+Doing =C-x k= should kill the current buffer at all times, we have =ibuffer= for more sophisticated thing.
+#+BEGIN_SRC emacs-lisp
+  (defun kill-current-buffer ()
+    "Kills the current buffer."
+    (interactive)
+    (kill-buffer (current-buffer)))
+  (global-set-key (kbd "C-x k") 'kill-current-buffer)
+#+END_SRC
+
+** Kill buffers without asking for confirmation
+Unless you have the muscle memory, I recommend omitting this bit, as you may lose progress for no reason when working.
+#+BEGIN_SRC emacs-lisp
+(setq kill-buffer-query-functions (delq 'process-kill-buffer-query-function kill-buffer-query-functions))
+#+END_SRC
+
+** Turn switch-to-buffer into ibuffer
+I don't understand how ibuffer isn't the default option by now.
+It's vastly superior in terms of ergonomics and functionality, you can delete buffers, rename buffer, move buffers, organize buffers etc.
+#+BEGIN_SRC emacs-lisp
+(global-set-key (kbd "C-x b") 'ibuffer)
+#+END_SRC
+
+*** expert-mode
+If you feel like you know how ibuffer works and need not to be asked for confirmation after every serious command, enable this as follows.
+#+BEGIN_SRC emacs-lisp
+(setq ibuffer-expert t)
+#+END_SRC
+** close-all-buffers
+It's one of those things where I genuinely have to wonder why there is no built in functionality for it.
+Once in a blue moon I need to kill all buffers, and having ~150 of them open would mean I'd need to spend a few too many
+seconds doing this than I'd like, here's a solution.
+
+This can be invoked using =C-M-s-k=. This keybinding makes sure you don't hit it unless you really want to.
+#+BEGIN_SRC emacs-lisp
+  (defun close-all-buffers ()
+    "Kill all buffers without regard for their origin."
+    (interactive)
+    (mapc 'kill-buffer (buffer-list)))
+  (global-set-key (kbd "C-M-s-k") 'close-all-buffers)
+#+END_SRC
+* Lua Mode
+#+BEGIN_SRC emacs-lisp
+  (use-package lua-mode
+    :ensure t)
+#+END_SRC
+* Magit
+Why? 
+Cli git is ok but requires context switching.
+Integrating more things to emacs has proven to become increasingly
+rewarding.
+#+BEGIN_SRC emacs-lisp
+  (use-package magit
+    :ensure t)
+#+END_SRC
+
+#+RESULTS:
+* DrRaket
+#+BEGIN_SRC emacs-lisp
+  (use-package racket-mode
+    :ensure t)
+#+END_SRC
+
+#+RESULTS:
+* Tide-mode
+#+BEGIN_SRC emacs-lisp
+(use-package tide
+  :ensure t
+  :after (typescript-mode company flycheck)
+  :hook ((typescript-mode . tide-setup)
+         (typescript-mode . tide-hl-identifier-mode)
+         (before-save . tide-format-before-save)))
+#+END_SRC
+
+#+RESULTS:
+| tide-format-before-save |
